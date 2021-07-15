@@ -22,7 +22,7 @@ void DecisionTree::setAgent(Agent* agent)
 
 TreeNode* DecisionTree::AddNode(TreeNode* parent, TreeNode* child_node, const TreeNodeType type)
 {
-	
+	return 0;
 }
 
 void DecisionTree::Display()
@@ -41,7 +41,7 @@ void DecisionTree::Update()
 // in-order traversal
 std::string DecisionTree::MakeDecision()
 {
-	
+	return 0;
 }
 
 void DecisionTree::m_buildTree()
