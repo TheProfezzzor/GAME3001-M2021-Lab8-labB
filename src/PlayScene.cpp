@@ -37,11 +37,13 @@ void PlayScene::update()
 	updateDisplayList();
 
 	m_CheckShipLOS(m_pTarget);
+	// Set three conditions of decision tree here.
 }
 
 void PlayScene::clean()
 {
 	removeAllChildren();
+	// clean up DecisionTree somehow.
 }
 
 void PlayScene::handleEvents()
@@ -84,6 +86,15 @@ void PlayScene::start()
 	m_pTarget->getTransform()->position = glm::vec2(600.f, 300.f);
 	addChild(m_pTarget);
 
+	// Create test tree
+	decisionTree = new DecisionTree();
+	decisionTree->setAgent(m_pShip);
+	decisionTree->Display(); // Optional.
+
+	std::cout << "------------------------" << std::endl;
+	std::cout << decisionTree->MakeDecision() << std::endl;
+	std::cout << "------------------------\n" << std::endl;
+
 	ImGuiWindowFrame::Instance().setGUIFunction(std::bind(&PlayScene::GUI_Function, this));
 }
 
@@ -116,6 +127,10 @@ void PlayScene::GUI_Function()
 	{
 		m_pShip->getTransform()->position.x = shipPosition[0];
 		m_pShip->getTransform()->position.y = shipPosition[1];
+
+		std::cout << "------------------------" << std::endl;
+		std::cout << decisionTree->MakeDecision() << std::endl;
+		std::cout << "------------------------\n" << std::endl;
 	}
 
 	static int targetPosition[] = { m_pTarget->getTransform()->position.x, m_pTarget->getTransform()->position.y };

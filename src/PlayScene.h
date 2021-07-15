@@ -9,6 +9,7 @@
 #include "ship.h"
 //#include "StarShip.h"
 #include "Target.h"
+#include "DecisionTree.h"
 
 class PlayScene : public Scene
 {
@@ -41,6 +42,9 @@ private:
 
 	// UI Controls
 	bool m_bToggleGrid;
+
+	// Decision Tree
+	DecisionTree* decisionTree;
 };
 
 #endif /* defined (__PLAY_SCENE__) */
